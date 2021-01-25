@@ -326,7 +326,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 4
-  m_Range: 10
+  m_Range: 55.24
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -382,78 +382,78 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656702645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 95.614, y: 86, z: -399}
+  m_LocalPosition: {x: -6.87, y: 22.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4287139375795708632
+--- !u!1001 &7491062913876891299
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4017091423434184328, guid: 760f82160939f7140a35794047015baa,
-        type: 3}
-      propertyPath: m_Name
-      value: boeing737_original.2.2.10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4392210239607295026, guid: 760f82160939f7140a35794047015baa,
+    - target: {fileID: 6953315359024112419, guid: f3dce0b260baadf4faf37f2c11f1ac62,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4392210239607295026, guid: 760f82160939f7140a35794047015baa,
+    - target: {fileID: 6953315359024112419, guid: f3dce0b260baadf4faf37f2c11f1ac62,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.93629
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4392210239607295026, guid: 760f82160939f7140a35794047015baa,
+    - target: {fileID: 6953315359024112419, guid: f3dce0b260baadf4faf37f2c11f1ac62,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 191.758
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4392210239607295026, guid: 760f82160939f7140a35794047015baa,
+    - target: {fileID: 6953315359024112419, guid: f3dce0b260baadf4faf37f2c11f1ac62,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.9695816
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4392210239607295026, guid: 760f82160939f7140a35794047015baa,
+    - target: {fileID: 6953315359024112419, guid: f3dce0b260baadf4faf37f2c11f1ac62,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4392210239607295026, guid: 760f82160939f7140a35794047015baa,
+    - target: {fileID: 6953315359024112419, guid: f3dce0b260baadf4faf37f2c11f1ac62,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4392210239607295026, guid: 760f82160939f7140a35794047015baa,
+    - target: {fileID: 6953315359024112419, guid: f3dce0b260baadf4faf37f2c11f1ac62,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4392210239607295026, guid: 760f82160939f7140a35794047015baa,
+    - target: {fileID: 6953315359024112419, guid: f3dce0b260baadf4faf37f2c11f1ac62,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4392210239607295026, guid: 760f82160939f7140a35794047015baa,
+    - target: {fileID: 6953315359024112419, guid: f3dce0b260baadf4faf37f2c11f1ac62,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4392210239607295026, guid: 760f82160939f7140a35794047015baa,
+    - target: {fileID: 6953315359024112419, guid: f3dce0b260baadf4faf37f2c11f1ac62,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4392210239607295026, guid: 760f82160939f7140a35794047015baa,
+    - target: {fileID: 6953315359024112419, guid: f3dce0b260baadf4faf37f2c11f1ac62,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7725067361485994393, guid: f3dce0b260baadf4faf37f2c11f1ac62,
+        type: 3}
+      propertyPath: m_Name
+      value: cockpit
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 760f82160939f7140a35794047015baa, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: f3dce0b260baadf4faf37f2c11f1ac62, type: 3}

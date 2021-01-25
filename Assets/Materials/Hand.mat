@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Hand
   m_Shader: {fileID: 4800000, guid: 3cc28828fe899af41b234b91188659ec, type: 3}
-  m_ShaderKeywords: _EMISSION
+  m_ShaderKeywords: _EMISSION _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -103,7 +103,7 @@ Material:
     - _FlipbookMode: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.129
-    - _GlossyReflections: 1
+    - _GlossyReflections: 0
     - _GlowInner: 0.05
     - _GlowOffset: 0
     - _GlowOuter: 0.05
@@ -135,7 +135,7 @@ Material:
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
     - _SoftParticlesNearFadeDistance: 0
-    - _SpecularHighlights: 1
+    - _SpecularHighlights: 0
     - _SpecularPower: 2
     - _SrcBlend: 1
     - _Stencil: 0
