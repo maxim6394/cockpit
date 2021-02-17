@@ -23,6 +23,19 @@ public class MenuManager : MonoBehaviour
 
     private GameObject circlingPlane, circlingPlane2;
 
+    private TextMeshProUGUI mistakesTextCockpit;
+
+    private int mistakes = 0;
+
+    public int Mistakes { set 
+        {
+            mistakes = value;
+            mistakesTextCockpit.text = "mistakes: " + mistakes; 
+            mistakesText.text = "mistakes: " + mistakes;
+        }
+    }
+
+
 
     // Start is called before the first frame update
     void Awake()
@@ -42,6 +55,7 @@ public class MenuManager : MonoBehaviour
         courseFinished = GameObject.Find("CourseFinished");
         mainMenu = GameObject.Find("MainMenu");
         mistakesText = GameObject.Find("MistakesText").GetComponent<TextMeshProUGUI>();
+        mistakesTextCockpit = GameObject.Find("MistakesTextCockpit").GetComponent<TextMeshProUGUI>();
         courseFinished.SetActive(false);
 
         instructionText = GameObject.Find("InstructionText").GetComponent<TextMeshProUGUI>();
@@ -75,7 +89,7 @@ public class MenuManager : MonoBehaviour
         instructionText.text = text;
     }
 
-    public void CourseFinished(int mistakes)
+    public void CourseFinished()
     {
         courseFinished.SetActive(true);
         mainMenu.SetActive(false);

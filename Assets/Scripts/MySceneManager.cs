@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Management;
@@ -16,7 +17,12 @@ public class MySceneManager : XRInteractionManager
 
     public enum TrainingCourse { NONE, TEST, BEFORE_TAXI, LANDING, AFTER_LANDING };
 
+
     private float timeUntilEnd = -1f;
+    private const float TRANSITION_TIME = 2f;
+
+    private float transitionTime = 0f;
+    private static bool fadeIn = true;
 
     public AudioSource ErrorSound;
     public AudioSource SuccessSound;
@@ -24,6 +30,8 @@ public class MySceneManager : XRInteractionManager
     private GameObject xrRig;
 
     private GameObject ground;
+
+    private RawImage sceneTransitionImage;
 
     private readonly Dictionary<TrainingCourse, string[]> trainingProcesses = new Dictionary<TrainingCourse, string[]>()
     {
@@ -114,6 +122,8 @@ public class MySceneManager : XRInteractionManager
         
         environment = GameObject.Find("Environment");
         ground = GameObject.Find("Ground");
+
+        sceneTransitionImage = GameObject.Find("SceneTransitionImage").GetComponent<RawImage>();
     }
 
 
@@ -123,6 +133,8 @@ public class MySceneManager : XRInteractionManager
         CockpitController.SetActive(false);
         UIController.SetActive(true);
         environment.SetActive(false);
+
+        transitionTime = 0;
     }
 
     protected void HideMenu()
@@ -131,6 +143,8 @@ public class MySceneManager : XRInteractionManager
         CockpitController.SetActive(true);
         UIController.SetActive(false);
         environment.SetActive(true);
+
+        transitionTime = 0;
     }
 
 
@@ -143,6 +157,7 @@ public class MySceneManager : XRInteractionManager
             if(device.TryGetFeatureValue(CommonUsages.primaryButton, out bool val)) {
                 if(!val && menuButtonPressed)
                 {
+                    transitionTime = 0;
                     if (MenuManager.instance.IsOpen)
                         HideMenu();
                     else
@@ -162,6 +177,14 @@ public class MySceneManager : XRInteractionManager
                 FinishTraining();
             }
         }
+
+        if(transitionTime < TRANSITION_TIME )
+        {
+            transitionTime = Mathf.Clamp(transitionTime + Time.deltaTime, 0,1);
+
+            var alpha = fadeIn ? 1 - transitionTime : transitionTime;
+            sceneTransitionImage.color = new Color(0, 0, 0, alpha);
+        }
         
     }
 
@@ -179,7 +202,8 @@ public class MySceneManager : XRInteractionManager
 
             if(currentTrainingCourse == TrainingCourse.LANDING)
             {
-                ground.transform.position = new Vector3(0, -22, 64);
+                ground.transform.position = new Vector3(0, -22, 64); 
+
             }
         }
 
@@ -206,7 +230,7 @@ public class MySceneManager : XRInteractionManager
 
 
         var xrInput = xrLoader.GetLoadedSubsystem<XRInputSubsystem>();
-        Debug.Log($"XRInput: {xrInput != null}");
+        //Debug.Log($"XRInput: {xrInput != null}");
 
         xrRig.transform.position = new Vector3(-0.22f, 1.53f, -0.474f);
         
@@ -221,7 +245,9 @@ public class MySceneManager : XRInteractionManager
 
     private void FinishTraining()
     {
-        MenuManager.instance.CourseFinished(mistakes);
+        transitionTime = 0;
+        fadeIn = true;
+        MenuManager.instance.CourseFinished();
         if (SuccessSound != null)
             SuccessSound.Play();
         ShowMenu();
@@ -304,7 +330,9 @@ public class MySceneManager : XRInteractionManager
 
             if (++currentStage == trainingProcesses[currentTrainingCourse].Length)
             {
-                timeUntilEnd = 1f;
+                timeUntilEnd = TRANSITION_TIME;
+                transitionTime = 0;
+                fadeIn = false;
                 return;
             }
             else
@@ -322,6 +350,7 @@ public class MySceneManager : XRInteractionManager
                 wrongSelections.Add(interactable.name);
                 outline.OutlineColor = Color.red;
                 mistakes++;
+                MenuManager.instance.Mistakes = mistakes;
             }
         }
     }
